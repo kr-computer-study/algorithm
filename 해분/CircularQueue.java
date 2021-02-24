@@ -12,10 +12,17 @@
     - 단점 -
     연결리스트 : 스택을 구현할 때와 같다. 내부의 값을 쉽게 보기 힘들다.
     배열 : 큐의 크기만큼 사용하지 않으면 메모리 낭비다.
+
+ +  오류 수정, 리팩토링
+
+    오류는 print 메서드와 isFull 메서드에서 일어남.
+    front 만 순환 후 0이 되는 시점에 rear 와 값이 같아 print 에 오류가 있었음.
+
  */
 
 class CircularQueue {
     private int max;         // 큐 크기
+    private int num = 0;
     private int front;       // 첫 번째 요소 커서
     private int rear;        // 마지막 요소 커서
     private int[] que;       // 큐 본체
@@ -28,33 +35,42 @@ class CircularQueue {
     }
 
     public boolean isEmpty() {
-        return (this.front == this.rear) ? true : false;
+        return num <= 0;
     }
 
     public boolean isFull() {
-        return ((this.rear+1) % this.max == this.front % this.max) ? true : false;
+        return num >= max;
     }
 
     public void enQueue(int value) {
         if(! isFull()) {
-            this.rear = (this.rear + 1) % this.max;
-            this.que[rear] = value;
+            que[rear] = value;
+            rear = (rear + 1) % max;
+            num++;
         }
     }
 
     public void deQueue() {
         if(! isEmpty()) {
-            this.front = (this.front + 1) % this.max;
+            front = (front + 1) % max;
+            num--;
         }
     }
 
     public void print() {
-        System.out.println("----------------");
-        int first = (this.front + 1) % this.max;
-        int  last = (this.rear + 1) % this.max;
+        int first = front % max;
+        int last = rear % max;
+        int i = first;
 
-        for(int i = first; i != last; i = (i+1) % this.max) {
-            System.out.printf("%d ", this.que[i]);
+        System.out.println("----------------");
+        if(num == max) {
+            System.out.printf("%d ", que[i]);
+            i = (i + 1) % max;
+        }
+
+        while (i != last) {
+            System.out.printf("%d ", que[i]);
+            i = (i + 1) % max;
         }
         System.out.println("\n----------------");
     }
@@ -68,17 +84,24 @@ class CircularQueue {
         queue.print();
         queue.enQueue(2);
         queue.print();
-        queue.enQueue(3); // isFull() = true 로 enQueue 실행 x
+        queue.enQueue(3);
         queue.print();
 
         queue.deQueue();
         queue.print();
 
-        queue.enQueue(3); // isFull() = false 로 enQueue 실행
-        queue.print();
-        queue.deQueue();
-        queue.print();
         queue.enQueue(4);
+        queue.print();
+        queue.deQueue();
+        queue.print();
+        queue.enQueue(5);
+        queue.print();
+
+        queue.deQueue();
+        queue.print();
+        queue.deQueue();
+        queue.print();
+        queue.deQueue();
         queue.print();
     }
 }
