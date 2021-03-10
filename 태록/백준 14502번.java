@@ -29,14 +29,14 @@ public class Main14502 {
             st = new StringTokenizer(br.readLine(), " ");
             for (int j = 0; j < M; j++) {
                 map[i][j] = st.nextToken().charAt(0);
-                if(map[i][j] == '2') {
-                    queue.add(new int[]{ i, j });
+                if (map[i][j] == '2') {
+                    queue.add(new int[]{i, j});
                 }
             }
         }
         result = 0;
 
-        dfs(0);
+        dfs(0, 0);
 
         System.out.println(result);
 
@@ -44,7 +44,7 @@ public class Main14502 {
 
     public static ArrayDeque<int[]> copyDeep(ArrayDeque<int[]> queue) {
         ArrayDeque<int[]> queueTemp = new ArrayDeque<>();
-        for (int[] node:queue) {
+        for (int[] node : queue) {
             queueTemp.add(node.clone());
         }
         return queueTemp;
@@ -54,7 +54,7 @@ public class Main14502 {
         int cnt = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if(map[i][j] == '0' && !check[i][j]) {
+                if (map[i][j] == '0' && !check[i][j]) {
                     cnt++;
                 }
             }
@@ -62,7 +62,7 @@ public class Main14502 {
         return cnt;
     }
 
-    public static void dfs(int cnt) {
+    public static void dfs(int cnt, int idx) {
         if (cnt == 3) {
             check = new boolean[N][M];
 
@@ -74,16 +74,14 @@ public class Main14502 {
             return;
         }
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                if (map[i][j] != '0') {
-                    continue;
-                }
-
-                map[i][j] = '1';
-                dfs(cnt + 1);
-                map[i][j] = '0';
+        for (int i = idx; i < N * M; i++) {
+            if (map[i / M][i % M] != '0') {
+                continue;
             }
+
+            map[i / M][i % M] = '1';
+            dfs(cnt + 1, i + 1);
+            map[i / M][i % M] = '0';
         }
     }
 
@@ -97,11 +95,11 @@ public class Main14502 {
                 int dx = dir[0][i] + node[0];
                 int dy = dir[1][i] + node[1];
 
-                if(dx < 0 || dx >= N || dy < 0 || dy >= M) {
+                if (dx < 0 || dx >= N || dy < 0 || dy >= M) {
                     continue;
                 }
 
-                if(map[dx][dy] != '0' || check[dx][dy]) {
+                if (map[dx][dy] != '0' || check[dx][dy]) {
                     continue;
                 }
 
