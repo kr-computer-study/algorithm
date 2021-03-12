@@ -1,31 +1,31 @@
 /*
-	¹®ÀÚ¿­ µ¡¼À ¹æ¹ýÀÌ´Ù.
+	ë¬¸ìžì—´ ë§ì…ˆ ë°©ë²•ì´ë‹¤.
 
-	ÀÚ·áÇü Å©±â¿¡ Á¦ÇÑ(Á¦¾à) ¾øÀÌ ¿¬»ê ÇÏÀÚ! ´Â ÃëÁö·Î ¸¸µé¾îÁø ±â´É°°´Ù.
+	ìžë£Œí˜• í¬ê¸°ì— ì œí•œ(ì œì•½) ì—†ì´ ì—°ì‚° í•˜ìž! ëŠ” ì·¨ì§€ë¡œ ë§Œë“¤ì–´ì§„ ê¸°ëŠ¥ê°™ë‹¤.
 
-	'¾ç¼ö'°¡ ÀÔ·ÂµÈ´Ù´Â Á¶°ÇÇÏ¿¡ ¿¬»ê ¹æ¹ýÀº °£´ÜÇÏ´Ù.
+	'ì–‘ìˆ˜'ê°€ ìž…ë ¥ëœë‹¤ëŠ” ì¡°ê±´í•˜ì— ì—°ì‚° ë°©ë²•ì€ ê°„ë‹¨í•˜ë‹¤.
 
-	¹è¿­¿¡ ¼ö¸¦ ÀúÀåÇÏ¸é ¿ÞÂÊ¿¡¼­ Â÷·Ê´ë·Î °ªÀ» ÀúÀåÇÑ´Ù. ( ÁÂÃø Á¤·Ä )
-	¿ì¸®´Â ÀÚ¸´¼ö¿¡ ¸ÂÃç¼­ ¿¬»êÀ» ÇØ¾ßÇÑ´Ù. 1ÀÇ ÀÚ¸®´Â 1ÀÇ ÀÚ¸®³¢¸®, 10ÀÇ ÀÚ¸®´Â 10ÀÇ ÀÚ¸®³¢¸®.
+	ë°°ì—´ì— ìˆ˜ë¥¼ ì €ìž¥í•˜ë©´ ì™¼ìª½ì—ì„œ ì°¨ë¡€ëŒ€ë¡œ ê°’ì„ ì €ìž¥í•œë‹¤. ( ì¢Œì¸¡ ì •ë ¬ )
+	ìš°ë¦¬ëŠ” ìžë¦¿ìˆ˜ì— ë§žì¶°ì„œ ì—°ì‚°ì„ í•´ì•¼í•œë‹¤. 1ì˜ ìžë¦¬ëŠ” 1ì˜ ìžë¦¬ë¼ë¦¬, 10ì˜ ìžë¦¬ëŠ” 10ì˜ ìžë¦¬ë¼ë¦¬.
 	
-	ÇØ°á ¹æ¹ýÀº ¼ö¸¦ ÀÔ·Â¹ÞÀ¸¸é ¿À¸¥ÂÊÀ¸·Î ´Ù ¹Ð¾î¹ö¸®°í ¿À¸¥ÂÊ¿¡¼­ ºÎÅÍ ¿¬»êÀ» ½ÃÀÛÇÑ´Ù. ( ¿ìÃø Á¤·Ä )
+	í•´ê²° ë°©ë²•ì€ ìˆ˜ë¥¼ ìž…ë ¥ë°›ìœ¼ë©´ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ë‹¤ ë°€ì–´ë²„ë¦¬ê³  ì˜¤ë¥¸ìª½ì—ì„œ ë¶€í„° ì—°ì‚°ì„ ì‹œìž‘í•œë‹¤. ( ìš°ì¸¡ ì •ë ¬ )
 
-	µÎ ÀÔ·Â°ªÀÇ ÀÚ¸´¼ö¸¦ Sum ÇÑ´Ù.
-	Sum °á°ú¿¡ ÀÇÇØ Carry °¡ ÀÏ¾î³ª¸é ¾Õ ÀÚ¸´¼ö¿¡ °ªÀ» ¿Ã·ÁÁØ´Ù.
+	ë‘ ìž…ë ¥ê°’ì˜ ìžë¦¿ìˆ˜ë¥¼ Sum í•œë‹¤.
+	Sum ê²°ê³¼ì— ì˜í•´ Carry ê°€ ì¼ì–´ë‚˜ë©´ ì•ž ìžë¦¿ìˆ˜ì— ê°’ì„ ì˜¬ë ¤ì¤€ë‹¤.
 	
-	±×·¯°í ´ÙÀ½ ÀÚ¸´¼ö¸¦ ¿¬»êÇÑ´Ù.
+	ê·¸ëŸ¬ê³  ë‹¤ìŒ ìžë¦¿ìˆ˜ë¥¼ ì—°ì‚°í•œë‹¤.
 
-	¸¦ ¹®ÀÚ ±æÀÌ¸¸Å­ ¹Ýº¹ÇÑ´Ù.
+	ë¥¼ ë¬¸ìž ê¸¸ì´ë§Œí¼ ë°˜ë³µí•œë‹¤.
 
-	- ÀåÁ¡ -
-	À§¿¡ ÃëÁö¿Í °°´Ù. ( ÀÚ·áÇü Å©±â¿¡ Á¦ÇÑÀÌ ¾ø´Ù. )
-	¶§¿¡ µû¶ó ÀÚ·áÇüº¸´Ù ¸Þ¸ð¸® »ç¿ë·®ÀÌ ÀûÀ» ¼ö ÀÖ´Ù.
+	- ìž¥ì  -
+	ìœ„ì— ì·¨ì§€ì™€ ê°™ë‹¤. ( ìžë£Œí˜• í¬ê¸°ì— ì œí•œì´ ì—†ë‹¤. )
+	ë•Œì— ë”°ë¼ ìžë£Œí˜•ë³´ë‹¤ ë©”ëª¨ë¦¬ ì‚¬ìš©ëŸ‰ì´ ì ì„ ìˆ˜ ìžˆë‹¤.
 
-	- ´ÜÁ¡ -
-	±× ¸¸Å­ ¿¬»ê°úÁ¤ÀÌ ±æ´Ù. ( Ã³¸® ½Ã°£ Áõ°¡ )
+	- ë‹¨ì  -
+	ê·¸ ë§Œí¼ ì—°ì‚°ê³¼ì •ì´ ê¸¸ë‹¤. ( ì²˜ë¦¬ ì‹œê°„ ì¦ê°€ )
 
 	
-	--- ½ÇÇà °á°ú ---
+	--- ì‹¤í–‰ ê²°ê³¼ ---
 	Input UP : 123456
 	Input DN : 456789012
 
@@ -38,26 +38,26 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#define MAX 15				// ¹®ÀÚ¿­ ÃÖ´ë ±æÀÌ ( 15ºñÆ® ¸¸Å­ ¾µ °Ì´Ï´Ù )
+#define MAX 15				// ë¬¸ìžì—´ ìµœëŒ€ ê¸¸ì´ ( 15Byte !!!!! )
 
-// ¹®ÀÚ¿­ ±ÛÀÚ '0' À¸·Î ÃÊ±âÈ­
+// ë¬¸ìžì—´ ê¸€ìž '0' ìœ¼ë¡œ ì´ˆê¸°í™”
 void strin(char arg[MAX]) {
 	int a;
 
 	for (a = 0; a < MAX; a++) {
-		arg[a] = '0';		// ¹®ÀÚ¿­ ±ÛÀÚ '0'À¸·Î ÃÊ±âÈ­
+		arg[a] = '0';		// ë¬¸ìžì—´ ê¸€ìž '0'ìœ¼ë¡œ ì´ˆê¸°í™”
 	}
 }
 
-// ÀÔ·ÂµÈ ÁÂÃøÁ¤·Ä ¹®ÀÚ¿­À» ¿ìÃøÁ¤·Ä ¹®ÀÚ¿­·Î º¯È¯
+// ìž…ë ¥ëœ ì¢Œì¸¡ì •ë ¬ ë¬¸ìžì—´ì„ ìš°ì¸¡ì •ë ¬ ë¬¸ìžì—´ë¡œ ë³€í™˜
 void strmvstr(char arg[MAX], int len) {
 	int a;
 	char temp[MAX] = { 0, };
 
-	strin(temp);		// temp ¹®ÀÚ¿­ ±ÛÀÚ '0'À¸·Î ÃÊ±âÈ­
+	strin(temp);		// temp ë¬¸ìžì—´ ê¸€ìž '0'ìœ¼ë¡œ ì´ˆê¸°í™”
 	
 	for (a = 0; a < len; a++) {
-		temp[(MAX-len)+a] = arg[a];	// ÁÂÃøÁ¤·Ä
+		temp[(MAX-len)+a] = arg[a];	// ì¢Œì¸¡ì •ë ¬
 	}
 	
 	for (a = 0; a < MAX; a++) {
@@ -81,20 +81,20 @@ int main(void) {
 	scanf("%s", down);
 
 	printf("\n  ");
-	strmvstr(up, strlen(up)); // ÀÔ·ÂµÈ ÁÂÃøÁ¤·Ä ¹®ÀÚ¿­À» ¿ìÃøÁ¤·Ä ¹®ÀÚ¿­·Î º¯È¯
+	strmvstr(up, strlen(up)); // ìž…ë ¥ëœ ì¢Œì¸¡ì •ë ¬ ë¬¸ìžì—´ì„ ìš°ì¸¡ì •ë ¬ ë¬¸ìžì—´ë¡œ ë³€í™˜
 	for (a = 0; a < MAX; a++) printf(" %c", up[a] );
 
 	printf("\n+ ");
-	strmvstr(down, strlen(down)); // ÀÔ·ÂµÈ ÁÂÃøÁ¤·Ä ¹®ÀÚ¿­À» ¿ìÃøÁ¤·Ä ¹®ÀÚ¿­·Î º¯È¯
+	strmvstr(down, strlen(down)); // ìž…ë ¥ëœ ì¢Œì¸¡ì •ë ¬ ë¬¸ìžì—´ì„ ìš°ì¸¡ì •ë ¬ ë¬¸ìžì—´ë¡œ ë³€í™˜
 	for (a = 0; a < MAX; a++) printf(" %c", down[a] );
 
 	printf("\n--------------------------------\n");
 
 	for (a = MAX - 1; a > 0; a--) {
-		result[a - 1] = ( result[a] + (up[a] - '0' ) + ( down[a] - '0') ) / 10;	// ¿Ã¸²¼ö(Carry) °è»ê
+		result[a - 1] = ( result[a] + (up[a] - '0' ) + ( down[a] - '0') ) / 10;	// ì˜¬ë¦¼ìˆ˜(Carry) ê³„ì‚°
 		result[a] = ( result[a] + (up[a] - '0' ) + ( down[a] - '0') ) % 10;
 	}
 
 	printf("= ");
-	for (a = 0; a < MAX; a++) printf(" %d", result[a]);		// µ¡¼À °á°ú È®ÀÎ
+	for (a = 0; a < MAX; a++) printf(" %d", result[a]);		// ë§ì…ˆ ê²°ê³¼ í™•ì¸
 }
