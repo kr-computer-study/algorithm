@@ -71,8 +71,10 @@ int main(void) {
 		if (cmd == 'B') {
 			if (listadress->pre != &head)
 			{
+				auto it = listadress->pre;
 				listadress->pre->pre->nex = listadress;
 				listadress->pre = listadress->pre->pre;
+				delete it;
 			}
 		}
 		//listadress의 이전의 이전의 다음 노드는 listadress이다.
