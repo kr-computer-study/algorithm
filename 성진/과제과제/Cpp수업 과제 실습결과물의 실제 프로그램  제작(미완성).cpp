@@ -6,7 +6,6 @@ using namespace std;
 class Champion
 {
 private:
-    string name;
     int level;
     float attack;
     float ability;
@@ -16,7 +15,9 @@ private:
     int wincount;
     bool type;
 public:
+    string name;
     Champion();
+    Champion(string);
     ~Champion();
     void View();
     void Buyitem();
@@ -30,9 +31,12 @@ public:
 
 Champion::Champion()
 {
+}
+Champion::Champion(string welcome)
+{
     int t;
     upline();
-    cout << "챔피언의 이름을 입력하세요 : ";
+    cout << welcome<<"챔피언의 이름을 입력하세요 : ";
     cin >> name;
     cout << "챔피언의 타입을 지정하세요" << endl;
     cout << "1.마법 공격 타입\n2.물리 공격 타입" << endl;
@@ -40,7 +44,7 @@ Champion::Champion()
     if (t == 1)
     {
         type = true;
-        cout << name << " 는 마법 공격 타입입니다!";
+        cout << name << " 는 마법 공격 타입입니다!"<<endl;
         level = 1;
         attack = 50;
         ability = 100;
@@ -48,11 +52,12 @@ Champion::Champion()
         magicdefense = 30;
         money = 10000;
         wincount = 0;
+        downline();
     }
     else
     {
         type = false;
-        cout << name << " 는 물리 공격 타입입니다!";;
+        cout << name << " 는 물리 공격 타입입니다!" << endl;
         level = 1;
         attack = 100;
         ability = 50;
@@ -68,7 +73,7 @@ Champion::~Champion()
 }
 void Champion::View()
 {
-    cout << "\n======================================" << endl;
+    upline();
     cout << name << " 챔피언의 정보" << endl;
     cout << "레벨 : " << level << endl;
     cout << "공격력 : " << attack << endl;
@@ -81,13 +86,16 @@ void Champion::View()
         cout << "공격 타입 : " << "마법 공격 타입" << endl;
     else
         cout << "공격 타입 : " << "물리 공격 타입" << endl;
+    downline();
 }
 void Champion::Buyitem() {
     upline();
+    cout << name << "의 아이템 구매창" << endl;
     cout << "1.공격력 아이템 구매" << endl;
     cout << "2.주문력 아이템 구매" << endl;
     cout << "3.방어력 아이템 구매" << endl;
     cout << "4.마법 저항력 아이템 구매" << endl;
+    cout << "5.아이템 구매 취소" << endl;
     downline();
     int cmd;
     cout << "몇번 아이템을 구매하시겠습니까?";
@@ -95,55 +103,61 @@ void Champion::Buyitem() {
     if (cmd == 1)
     {
         upline();
-        cout << "1.롱소드 (공격력 +10 , 가격 500원)";
-        cout << "2.도란의 검 (공격력 +20 , 가격 1000원)";
-        cout << "3.곡괭이 (공격력 +40 , 가격 2000원)";
-        cout << "4.B.F대검 (공격력 +80 , 가격 4000원)";
+        cout << "1.롱소드 (공격력 +10 , 가격 500원)" << endl;
+        cout << "2.도란의 검 (공격력 +20 , 가격 1000원)" << endl;
+        cout << "3.곡괭이 (공격력 +40 , 가격 2000원)" << endl;
+        cout << "4.B.F대검 (공격력 +80 , 가격 4000원)" << endl;
         downline();
         int cmd;
-        cout << "몇번 아이템을 구매하시겠습니까?";
+        cout << "몇번 아이템을 구매하시겠습니까?" << endl;
         cin >> cmd;
         Buyattack(cmd);
     }
     if (cmd == 2)
     {
         upline();
-        cout << "1.증폭의 고서 (주문력 +10 , 가격 500원)";
-        cout << "2.도란의 반지 (주문력 +20 , 가격 1000원)";
-        cout << "3.방출의 마법봉 (주문력 +40 , 가격 2000원)";
-        cout << "4.쓸데없이 큰 지팡이 (주문력 +80 , 가격 4000원)";
+        cout << "1.증폭의 고서 (주문력 +10 , 가격 500원)" << endl;
+        cout << "2.도란의 반지 (주문력 +20 , 가격 1000원)" << endl;
+        cout << "3.방출의 마법봉 (주문력 +40 , 가격 2000원)" << endl;
+        cout << "4.쓸데없이 큰 지팡이 (주문력 +80 , 가격 4000원)" << endl;
         downline();
         int cmd;
-        cout << "몇번 아이템을 구매하시겠습니까?";
+        cout << "몇번 아이템을 구매하시겠습니까?" << endl;
         cin >> cmd;
         Buyability(cmd);
     }
     if (cmd == 3)
     {
         upline();
-        cout << "1.천 갑옷 (방어력 +5% , 가격 500원)";
-        cout << "2.쇠사슬 조끼 (방어력 +8% , 가격 1000원)";
-        cout << "3.덤불 조끼 (방어력 +12% , 가격 2000원)";
-        cout << "4.가시 갑옷 (방어력 +15% , 가격 4000원)";
+        cout << "1.천 갑옷 (방어력 +5% , 가격 500원)" << endl;
+        cout << "2.쇠사슬 조끼 (방어력 +8% , 가격 1000원)" << endl;
+        cout << "3.덤불 조끼 (방어력 +12% , 가격 2000원)" << endl;
+        cout << "4.가시 갑옷 (방어력 +15% , 가격 4000원)" << endl;
         downline();
         int cmd;
-        cout << "몇번 아이템을 구매하시겠습니까?";
+        cout << "몇번 아이템을 구매하시겠습니까?" << endl;
         cin >> cmd;
-        Buyability(cmd)
+        Buyability(cmd);
     }
     if (cmd == 4)
     {
         upline();
-        cout << "1.마법 무효화의 망토 (마법저항력 +5% , 가격 500원)";
-        cout << "2.음전자 망토 (마법저항력 +8% , 가격 1000원)";
-        cout << "3.정령의 형상 (마법저항력 +12% , 가격 2000원)";
-        cout << "4.용의 발톱 (마법저항력 +15% , 가격 4000원)";
+        cout << "1.마법 무효화의 망토 (마법저항력 +5% , 가격 500원)" << endl;
+        cout << "2.음전자 망토 (마법저항력 +8% , 가격 1000원)" << endl;
+        cout << "3.정령의 형상 (마법저항력 +12% , 가격 2000원)" << endl;
+        cout << "4.용의 발톱 (마법저항력 +15% , 가격 4000원)" << endl;
         downline();
         int cmd;
-        cout << "몇번 아이템을 구매하시겠습니까? : ";
+        cout << "몇번 아이템을 구매하시겠습니까? : " << endl;
         cin >> cmd;
+        Buymagicdefense(cmd);
     }
+    if (cmd == 5)
+    {
+        upline();
 
+        downline();
+    }
 }
 void Champion::Buyattack(int n) {
     if (n == 1)
@@ -249,6 +263,41 @@ void Champion::Buydefense(int n) {
     }
 
 }
+void Champion::Buymagicdefense(int n) {
+    if (n == 1)
+    {
+        upline();
+        cout << "마법 무효화의 망토 (마법저항력 +5% , 가격 500원) 아이템을 구매하였습니다." << endl;
+        magicdefense += 5;
+        cout << "현재 방어력 : " << defense << endl;
+        downline();
+    }
+    if (n == 2)
+    {
+        upline();
+        cout << "음전자 망토 (마법저항력 +8% , 가격 1000원) 아이템을 구매하였습니다." << endl;
+        magicdefense += 8;
+        cout << "현재 방어력 : " << defense << endl;
+        downline();
+    }
+    if (n == 3)
+    {
+        upline();
+        cout << "정령의 형상 (마법저항력 +12% , 가격 2000원) 아이템을 구매하였습니다." << endl;
+        magicdefense += 12;
+        cout << "현재 방어력 : " << defense << endl;
+        downline();
+    }
+    if (n == 4)
+    {
+        upline();
+        cout << "용의 발톱 (마법저항력 +15% , 가격 4000원) 아이템을 구매하였습니다." << endl;
+        magicdefense += 15;
+        cout << "현재 방어력 : " << defense << endl;
+        downline();
+    }
+
+}
 void Champion::upline()
 {
     cout << "\n======================================" << endl;
@@ -257,7 +306,63 @@ void Champion::downline()
 {
     cout << "======================================" << endl;
 }
-int main()
+void infor()
 {
+    cout << "\n======================================" << endl;
+    cout << "항목을 선택해주세요" << endl;
+    cout << "1.챔피언 생성하기" << endl;
+    cout << "2.챔피언 리스트 보기" << endl;
+    cout << "3.챔피언 정보 보기" << endl;
+    cout << "4.아이템 구매하기" << endl;
+    cout << "4.결투하기" << endl;
+    cout << "5.게임 종료하기" << endl;
+    cout << "======================================" << endl;
+    cout << "몇번을 선택하시겠습니까? : ";
 
 }
+
+int main()
+{
+    Champion* ch = new Champion[10];
+    int championnumber = 0;
+    while (true)
+    {
+        infor();
+        int n;
+        cin >> n;
+
+        switch (n)
+        {
+        case 1:
+            ch[championnumber] = Champion("안녕하세요! ");
+            championnumber++;
+            break;
+        case 2:
+            cout << "\n======================================" << endl;
+            for (int i = 0; i < 10; i++)
+                cout << i << "번째 챔피언 : " << ch[i].name << endl;
+                cout << "======================================" << endl;
+                break;
+        case 3:
+            int a;
+            cout << "\n======================================" << endl;
+            cout << "몇번째 챔피언의 정보를 보시겠습니까?";
+            cin >> a;
+            ch[a].View();
+            cout << "======================================" << endl;
+            break;
+        default:
+        case 4:
+            int b;
+            cout << "\n======================================" << endl;
+            cout << "몇번째 챔피언의 아이템을 사시겠습니까? : ";
+            cin >> b;
+            ch[b].Buyitem();
+            cout << "======================================" << endl;
+            break;
+        }
+    }
+}
+
+/*결투 만들고 돈 차감되는 기능 넣어야 함
+*/
